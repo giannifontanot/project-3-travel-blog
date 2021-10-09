@@ -6,8 +6,8 @@ import { QUERY_THOUGHTS } from '../../utils/queries';
 
 const ThoughtForm = () => {
   const [formState, setFormState] = useState({
-    thoughtText: '',
-    thoughtAuthor: '',
+      thoughtText: '',
+      thoughtAuthor: '',
   });
   const [characterCount, setCharacterCount] = useState(0);
 
