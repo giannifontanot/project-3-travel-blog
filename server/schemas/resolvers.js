@@ -1,23 +1,23 @@
-const { Thought } = require('../models');
+const { Trip } = require('../models');
 
 const resolvers = {
   Query: {
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+    trips: async () => {
+      return Trip.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    trip: async (parent, { tripId }) => {
+      return Trip.findOne({ _id: tripId });
     },
   },
 
   Mutation: {
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      return Thought.create({ thoughtText, thoughtAuthor });
+    addTrip: async (parent, { description, tripTitle }) => {
+      return Trip.create({ description, tripTitle });
     },
-    addComment: async (parent, { thoughtId, commentText }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    addComment: async (parent, { tripId, commentText }) => {
+      return Trip.findOneAndUpdate(
+        { _id: tripId },
         {
           $addToSet: { comments: { commentText } },
         },
@@ -27,12 +27,12 @@ const resolvers = {
         }
       );
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+    removeTrip: async (parent, { tripId }) => {
+      return Trip.findOneAndDelete({ _id: tripId });
     },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    removeComment: async (parent, { tripId, commentId }) => {
+      return Trip.findOneAndUpdate(
+        { _id: tripId },
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );

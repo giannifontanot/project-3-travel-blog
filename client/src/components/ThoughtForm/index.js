@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS } from '../../utils/queries';
+import { ADD_TRIP } from '../../utils/mutations';
+import { QUERY_TRIPS } from '../../utils/queries';
 
 const ThoughtForm = () => {
   const [formState, setFormState] = useState({
@@ -11,14 +11,14 @@ const ThoughtForm = () => {
   });
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+  const [addThought, { error }] = useMutation(ADD_TRIP, {
     // All returning data from Apollo Client queries/mutations return in a `data` field, followed by the the data returned by the request
     update(cache, { data: { addThought } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { thoughts } = cache.readQuery({ query: QUERY_TRIPS });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
+          query: QUERY_TRIPS,
           data: { thoughts: [addThought, ...thoughts] },
         });
       } catch (e) {
