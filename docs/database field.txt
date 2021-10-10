@@ -1,0 +1,26 @@
+	
+	Trip
+	---------
+	*Trip Title
+	*tripId
+	*description
+	address
+	location	Machu Pichu
+	image
+	latlon     
+	weather  	suny today
+	population
+	*comments
+	
+	
+	Users
+	-----
+	username
+	password
+	
+	
+	UsersTrips
+	----------
+	username
+	tripId
+	

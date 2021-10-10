@@ -1,0 +1,30 @@
+[
+  {
+    "title": "My Cancun holiday",
+    "description": "Cancun is a Caribbean destination, where you never gets bored.",
+    "comments": [
+      {
+        "text": "this was nice",
+        "username": "Snoopy"
+      },
+      {
+        "text": "really like it!",
+        "username": "Charlie Brown"
+      }
+    ]
+  },
+  {
+    "title": "Aspen Mountains",
+    "description": "Aspen is a great place to stay for thanksgiving and Christmas.",
+    "comments": [
+      {
+        "text": "family place",
+        "username": "Batman"
+      },
+      {
+        "text": "I loved the snow",
+        "username": "Robin"
+      }
+    ]
+  }
+]
