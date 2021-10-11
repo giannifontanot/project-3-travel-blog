@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import '../assets/css/style.css';
 
 import { ADD_TRIP } from '../../utils/mutations';
 import { QUERY_TRIPS } from '../../utils/queries';
 
-const ThoughtForm = () => {
+const TripForm = () => {
   const [formState, setFormState] = useState({
       thoughtText: '',
       thoughtAuthor: '',
@@ -56,7 +57,7 @@ const ThoughtForm = () => {
   };
 
   return (
-    <div>
+    <div className="tripCard">
       <h3>What's on your techy mind?</h3>
 
       <p
@@ -78,8 +79,8 @@ const ThoughtForm = () => {
             value={formState.thoughtText}
             className="form-input w-100"
             style={{ lineHeight: '1.5' }}
-            onChange={handleChange}
-          ></textarea>
+            onChange={handleChange}>
+          </textarea>
         </div>
         <div className="col-12 col-lg-9">
           <input
@@ -106,4 +107,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default TripForm;

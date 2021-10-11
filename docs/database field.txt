@@ -7,20 +7,52 @@
 	address
 	location	Machu Pichu
 	image
-	latlon     
+	latlon
 	weather  	suny today
 	population
 	*comments
 	
-	
+
+
+	//////////////////////
+
+	Create a
+	//////////////////////
+
 	Users
 	-----
 	username
 	password
 	
-	
+
+
 	UsersTrips
 	----------
 	username
 	tripId
+
+	------------------------------------------------------
+
+	CREATE A NEW BRANCH
+
+	------------------------------------------------------
+
+	- Check the TIME in the card container
+	https://css-tricks.com/everything-you-need-to-know-about-date-in-javascript/
+
+    - https://reactrouter.com
+	https://reactrouter.com/web/guides/primary-components
+
+	-Open Authorization code
+	https://auth0.com/intro-to-iam/what-is-oauth-2/
+
+
+	----------------------------------
+	Make a new packages
+	create a nav bar to access that packages
+	----------------------------------
+	login
+	    -models
+	    -auth0
+
 	

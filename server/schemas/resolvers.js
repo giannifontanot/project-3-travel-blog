@@ -3,7 +3,9 @@ const { Trip } = require('../models');
 const resolvers = {
   Query: {
     trips: async () => {
-      return Trip.find().sort({ createdAt: -1 });
+      const  trip  = await Trip.find().sort({ createdAt: -1 });
+       console.log("---> trip :" + JSON.stringify (trip));
+      return trip;
     },
 
     trip: async (parent, { tripId }) => {
