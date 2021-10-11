@@ -1,29 +1,35 @@
 [
   {
-    "title": "My Cancun holiday",
+    "tripTitle": "My Cancun holiday",
     "description": "Cancun is a Caribbean destination, where you never gets bored.",
+    "createdAt": "",
     "comments": [
       {
-        "text": "this was nice",
-        "username": "Snoopy"
+        "commentText": "this was nice",
+        "username": "Snoopy",
+        "createdAt":""
       },
       {
-        "text": "really like it!",
-        "username": "Charlie Brown"
+        "commentText": "really like it!",
+        "username": "Charlie Brown",
+        "createdAt":""
       }
     ]
   },
   {
-    "title": "Aspen Mountains",
+    "tripTitle": "Aspen Mountains",
     "description": "Aspen is a great place to stay for thanksgiving and Christmas.",
+    "createdAt": "",
     "comments": [
       {
-        "text": "family place",
-        "username": "Batman"
+        "commentText": "family place",
+        "username": "Batman",
+        "createdAt":""
       },
       {
-        "text": "I loved the snow",
-        "username": "Robin"
+        "commentText": "I loved the snow",
+        "username": "Robin",
+        "createdAt":""
       }
     ]
   }
