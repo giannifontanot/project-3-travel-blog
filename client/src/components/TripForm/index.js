@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import '../assets/css/style.css';
+import '../assets/css/style2.css';
 
 import { ADD_TRIP } from '../../utils/mutations';
 import { QUERY_TRIPS } from '../../utils/queries';
 
 const TripForm = () => {
   const [formState, setFormState] = useState({
-      thoughtText: '',
-      thoughtAuthor: '',
+    description: '',
+    tripTitle: '',
   });
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_TRIP, {
+  const [addTrip, { error }] = useMutation(ADD_TRIP, {
     // All returning data from Apollo Client queries/mutations return in a `data` field, followed by the the data returned by the request
-    update(cache, { data: { addThought } }) {
+    update(cache, { data: { addTrip } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_TRIPS });
+        const { trips } = cache.readQuery({ query: QUERY_TRIPS });
 
         cache.writeQuery({
           query: QUERY_TRIPS,
-          data: { thoughts: [addThought, ...thoughts] },
+          data: { trips: [addTrip, ...trips] },
         });
       } catch (e) {
         console.error(e);
@@ -32,13 +32,13 @@ const TripForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addTrip({
         variables: { ...formState },
       });
 
       setFormState({
-        thoughtText: '',
-        thoughtAuthor: '',
+        description: '',
+        tripTitle: '',
       });
     } catch (err) {
       console.error(err);
@@ -48,10 +48,10 @@ const TripForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === 'description' && value.length <= 280) {
       setFormState({ ...formState, [name]: value });
       setCharacterCount(value.length);
-    } else if (name !== 'thoughtText') {
+    } else if (name !== 'description') {
       setFormState({ ...formState, [name]: value });
     }
   };
@@ -74,9 +74,9 @@ const TripForm = () => {
       >
         <div className="col-12">
           <textarea
-            name="thoughtText"
+            name="description"
             placeholder="Here's a new thought..."
-            value={formState.thoughtText}
+            value={formState.description}
             className="form-input w-100"
             style={{ lineHeight: '1.5' }}
             onChange={handleChange}>
@@ -84,9 +84,9 @@ const TripForm = () => {
         </div>
         <div className="col-12 col-lg-9">
           <input
-            name="thoughtAuthor"
-            placeholder="Add your name to get credit for the thought..."
-            value={formState.thoughtAuthor}
+            name="tripTitle"
+            placeholder="Add your name to get credit for the trip..."
+            value={formState.tripTitle}
             className="form-input w-100"
             onChange={handleChange}
           />
@@ -94,7 +94,7 @@ const TripForm = () => {
 
         <div className="col-12 col-lg-3">
           <button className="btn btn-primary btn-block py-3" type="submit">
-            Add Thought
+            Add Trip
           </button>
         </div>
         {error && (

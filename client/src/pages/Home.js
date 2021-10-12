@@ -1,38 +1,31 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React, {useState} from 'react';
+import NavigationHeader from '../components/NavigationHeader';
 
-import TripList from '../components/TripList';
-import TripForm from '../components/TripForm';
+import Dashboard from './Dashboard';
+import CreateReview from './CreateReview';
 
-import { QUERY_TRIPS } from '../utils/queries';
+export default function PortfolioContainer() {
+  const [pageToDraw, setPageToDraw] = useState('About');
 
-const Home = () => {
-  const { loading, data } = useQuery(QUERY_TRIPS);
-  const trips = data?.trips || [];
+  // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
+  const renderPage = () => {
+    if (pageToDraw === 'Dashboard') {
+      return <Dashboard/>;
+    }
+    if (pageToDraw === 'CreateReview') {
+      return <CreateReview/>;
+    }
+    return <Dashboard/>;
+  };
+
+  const handlePageChange = (page) => setPageToDraw(page);
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <TripForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <TripList
-              trips={trips}
-              message={"hey hey hey!!!"}
-              title="Some Feed for Trips(s)..."
-            />
-          )}
-        </div>
+      <div>
+        {/* We are passing the currentPage from state and the function to update it */}
+        <NavigationHeader pageToDraw={pageToDraw} handlePageChange={handlePageChange}/>
+        {/* Here we are calling the renderPage method which will return a component  */}
+        {renderPage()}
       </div>
-    </main>
   );
-};
-
-export default Home;
+}
