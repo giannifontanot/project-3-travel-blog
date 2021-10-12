@@ -45,6 +45,33 @@ const TripForm = () => {
     }
   };
 
+
+  const handleFormSubmit2 = async (event) => {
+    event.preventDefault();
+
+    const url = "https://api.cloudinary.com/v1_1/fullstackdeveloper/image/upload";
+    const files = document.querySelector("[type=file]").files;
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      let file = files[i];
+      formData.append("file", file);
+      formData.append("upload_preset", "rpw7hj6v");
+
+      console.log("---> fetch :");
+      fetch (url, {
+        method: "POST",
+        body: formData
+      })
+          .then((response) => {
+            return response.text();
+          })
+          .then((data) => {
+            document.getElementById("data").innerHTML += data;
+          });
+    }
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -92,6 +119,10 @@ const TripForm = () => {
           />
         </div>
 
+
+
+
+
         <div className="col-12 col-lg-3">
           <button className="btn btn-primary btn-block py-3" type="submit">
             Add Trip
@@ -103,6 +134,24 @@ const TripForm = () => {
           </div>
         )}
       </form>
+
+
+      <div>
+        <form
+            id="formImage"
+            method="post"
+            encType="multipart/form-data"
+            onSubmit={handleFormSubmit2}>
+          <input type="file" name="files[]" multiple />
+          <input type="submit" value="Upload Files" name="submit" />
+        </form>
+
+        <p id="data">
+
+        </p>
+
+
+      </div>
     </div>
   );
 };
