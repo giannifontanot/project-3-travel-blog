@@ -1,4 +1,121 @@
+body {
+
+    letter-spacing: 0.75pt;
+    line-height: 1.0;
+    font-family: Verdana, sans-serif;
+
+}
+
 .tripCard{
     box-shadow: rgba(0, 0, 0, 0.45) 0px 4px 10px 0px;
     border-radius: 10px;
+    padding: 30px;
+    background-color: white;
+}
+
+.polaroid {
+    background-color: #fff;
+    padding: 10px 10px 55px 10px;
+    border-radius: 5px;
+    /*// width: 150px;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.polaroid {
+    width: 120%;
+}
+
+.polaroid-container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.rotate-15 {
+    transform: rotate(-15deg);
+}
+
+.rotate20 {
+    transform: rotate(20deg);
+}
+
+.rotate10 {
+    transform: rotate(10deg);
+}
+
+.card-header{
+    font-weight: bolder;
+    border-bottom: 1px solid black;
+}
+
+.header-blue-top{
+    background-color: steelblue;
+    margin: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 100;
+}
+
+.header-blue{
+    background-color: lightblue;
+    height: 50px;
+    border-radius: 0 0 15px 15px;
+    margin: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.vred{
+    border: 1px solid red;
+}
+
+.nav-container-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu-row{
+    margin-top: 20px;
+}
+
+.nav-table{
+    margin-top: 5px;
+}
+
+.nav-table-cell{
+font-weight: normal;
+    color: white;
+    padding: 10px;
+    font-size: 150%;
+    background-color: #87ceeb;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+margin: 5px;
+}
+
+
+.nav-table-cell-active{
+font-weight: bold;
+    color: white;
+    padding: 10px;
+    font-size: 150%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.menu-row{
+    padding: 5px;
 }

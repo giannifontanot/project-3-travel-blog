@@ -8,10 +8,17 @@ import './assets/css/purecssframework.css';
 function NavigationHeader({pageToDraw, handlePageChange}) {
     return (
         <>
-            <header>
+            <header className="header-blue">
                 <nav className="nav-container-top">
-                    <table className="nav-table vred">
-                        <tr>
+                    <table className="nav-table ">
+                        <tr className="nemu-row">
+                            <td className={pageToDraw === 'Login' ? 'nav-table-cell-active' : 'nav-table-cell'}>
+                                <a className="nav-item-right"
+                                   href="#"
+                                   onClick={() => handlePageChange('Login')}><div className="cell-menu">Login</div>
+                                </a>
+                            </td>
+                            <td>&nbsp;</td>
                             <td className={pageToDraw === 'CreateReview' ? 'nav-table-cell-active' : 'nav-table-cell'}>
                                 <a className="nav-item-right"
                                    href="#"

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import '../assets/css/style2.css';
+import './assets/css/style2.css';
 
-import { ADD_TRIP } from '../../utils/mutations';
-import { QUERY_TRIPS } from '../../utils/queries';
+import { ADD_TRIP } from '../utils/mutations';
+import { QUERY_TRIPS } from '../utils/queries';
 
 const TripForm = () => {
   const [formState, setFormState] = useState({
     description: '',
     tripTitle: '',
+    imageUrl: '',
   });
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -39,6 +40,7 @@ const TripForm = () => {
       setFormState({
         description: '',
         tripTitle: '',
+        imageUrl: '',
       });
     } catch (err) {
       console.error(err);
@@ -85,7 +87,7 @@ const TripForm = () => {
 
   return (
     <div className="tripCard">
-      <h3>What's on your techy mind?</h3>
+      <h3>Tell us about your trip!</h3>
 
       <p
         className={`m-0 ${

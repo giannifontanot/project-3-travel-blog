@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Trip {
     _id: ID
     tripTitle: String
+    imageUrl: String
     description: String
     createdAt: String
     comments: [Comment]!
@@ -21,7 +22,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addTrip(tripTitle: String!, description: String!): Trip
+    addTrip(tripTitle: String!, description: String!, imageUrl: String!): Trip
     addComment(tripId: ID!, username: String, commentText: String!): Trip
     removeTrip(tripId: ID!): Trip
     removeComment(tripId: ID!, commentId: ID!): Trip

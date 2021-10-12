@@ -2,6 +2,7 @@
   {
     "tripTitle": "My Cancun holiday",
     "description": "Cancun is a Caribbean destination, where you never gets bored.",
+    "imageUrl": "https://res.cloudinary.com/fullstackdeveloper/image/upload/v1634049834/mckt7xseemeewzbudwac.jpg",
     "createdAt": "",
     "comments": [
       {
@@ -19,6 +20,7 @@
   {
     "tripTitle": "Aspen Mountains",
     "description": "Aspen is a great place to stay for thanksgiving and Christmas.",
+    "imageUrl": "https://res.cloudinary.com/fullstackdeveloper/image/upload/v1634049841/ih59rurbpbzqma671yhh.jpg",
     "createdAt": "",
     "comments": [
       {

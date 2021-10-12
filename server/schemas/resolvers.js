@@ -14,8 +14,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addTrip: async (parent, { description, tripTitle }) => {
-      return await Trip.create({ description, tripTitle });
+    addTrip: async (parent, { description, tripTitle, imageUrl }) => {
+      return await Trip.create({ description, tripTitle, imageUrl });
     },
     addComment: async (parent, { tripId, commentText }) => {
       return await Trip.findOneAndUpdate(

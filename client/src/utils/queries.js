@@ -6,6 +6,7 @@ export const QUERY_TRIPS = gql`
       _id
       description #thoughtText
       tripTitle   #ThoughtAuthor
+      imageUrl
       createdAt
     }
   }

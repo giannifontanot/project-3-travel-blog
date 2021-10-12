@@ -3,12 +3,16 @@ import NavigationHeader from '../components/NavigationHeader';
 
 import Dashboard from './Dashboard';
 import CreateReview from './CreateReview';
+import Login from './Login';
 
 export default function PortfolioContainer() {
-  const [pageToDraw, setPageToDraw] = useState('About');
+  const [pageToDraw, setPageToDraw] = useState('Dashboard');
 
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
+    if (pageToDraw === 'Login') {
+      return <Login />;
+    }
     if (pageToDraw === 'Dashboard') {
       return <Dashboard/>;
     }
