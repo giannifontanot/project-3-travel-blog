@@ -25,6 +25,7 @@ function NavigationHeader({pageToDraw, handlePageChange}) {
                                    onClick={() => handlePageChange('CreateReview')}><div className="cell-menu">Create Review</div>
                                 </a>
                             </td>
+                            <td>&nbsp;</td>
                             <td className={pageToDraw === 'Dashboard' ? 'nav-table-cell-active' : 'nav-table-cell'}>
                                 <a className="nav-item-right"
                                    href="#"
