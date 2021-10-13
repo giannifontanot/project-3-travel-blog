@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useMutation} from '@apollo/client';
 import './assets/css/style2.css';
-import { useHistory } from "react-router-dom";
+
 import imgBlank from '../components/assets/images/blank.jpg';
 
 import {ADD_TRIP} from '../utils/mutations';
@@ -10,7 +10,7 @@ import {QUERY_TRIPS} from '../utils/queries';
 
 
 const TripForm = () => {
-    const history = useHistory();
+
     const [formState, setFormState] = useState({
         description: '',
         tripTitle: '',
@@ -49,9 +49,7 @@ const TripForm = () => {
             });
 
 
-
-                let path = '/';
-                history.push(path);
+            
 
 
 
