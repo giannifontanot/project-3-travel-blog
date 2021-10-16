@@ -1,35 +1,36 @@
 import React, {useState} from 'react';
 import NavigationHeader from '../components/NavigationHeader';
-
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Dashboard from './Dashboard';
+import About from './About';
 import CreateReview from './CreateReview';
-import Login from './Login';
+import Login from '../components/Login';
+import Logout from '../components/Logout';
+import useToken from '../components/useToken';
 
-export default function PortfolioContainer() {
-  const [pageToDraw, setPageToDraw] = useState('Dashboard');
+export default function Home() {
+    const { token, setToken } = useToken();
 
-  // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
-  const renderPage = () => {
-    if (pageToDraw === 'Login') {
-      return <Login />;
-    }
-    if (pageToDraw === 'Dashboard') {
-      return <Dashboard/>;
-    }
-    if (pageToDraw === 'CreateReview') {
-      return <CreateReview/>;
-    }
-    return <Dashboard/>;
-  };
 
-  const handlePageChange = (page) => setPageToDraw(page);
+    if(!token){
+        return <Login setToken={setToken}/>
+     }
 
-  return (
-      <div>
-        {/* We are passing the currentPage from state and the function to update it */}
-        <NavigationHeader pageToDraw={pageToDraw} handlePageChange={handlePageChange}/>
-        {/* Here we are calling the renderPage method which will return a component  */}
-        {renderPage()}
-      </div>
-  );
+
+    return (
+        <div>
+            <Router>
+                {/* We are passing the currentPage from state and the function to update it */}
+                <NavigationHeader  />
+                {/* Here we are calling the renderPage method which will return a component  */}
+                <Switch>
+                    <Route path="/logout" component={Logout}/>
+                    <Route path="/dashboard" component={Dashboard}/>
+                    <Route path="/" exact component={Dashboard}/>
+                    <Route path="/createReview" component={CreateReview}/>
+                    <Route path="/about" component={About}/>
+                </Switch>
+            </Router>
+        </div>
+    );
 }

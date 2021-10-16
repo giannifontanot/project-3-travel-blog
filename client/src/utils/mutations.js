@@ -15,3 +15,5 @@ export const ADD_TRIP = gql`
     }
   }
 `;
+
+

@@ -1,4 +1,4 @@
-const { Trip } = require('../models');
+const { Trip, User } = require('../models');
 
 const resolvers = {
   Query: {
@@ -17,8 +17,10 @@ const resolvers = {
     addTrip: async (parent, { description, tripTitle, imageUrl }) => {
       return await Trip.create({ description, tripTitle, imageUrl });
     },
+
+
     addComment: async (parent, { tripId, commentText }) => {
-      return await Trip.findOneAndUpdate(
+      return  Trip.findOneAndUpdate(
         { _id: tripId },
         {
           $addToSet: { comments: { commentText } },
@@ -30,10 +32,10 @@ const resolvers = {
       );
     },
     removeTrip: async (parent, { tripId }) => {
-      return await Trip.findOneAndDelete({ _id: tripId });
+      return  Trip.findOneAndDelete({ _id: tripId });
     },
     removeComment: async (parent, { tripId, commentId }) => {
-      return await Trip.findOneAndUpdate(
+      return  Trip.findOneAndUpdate(
         { _id: tripId },
         { $pull: { comments: { _id: commentId } } },
         { new: true }

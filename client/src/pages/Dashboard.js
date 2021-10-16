@@ -20,7 +20,7 @@ const Dashboard = () => {
                         <TripList
                             trips={trips}
                             message={"hey hey hey!!!"}
-                            title="Some Feed for Trips(s)..."
+                            title="What's your greatest adventure?"
                         />
                     )}
                 </div>

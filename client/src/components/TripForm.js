@@ -1,20 +1,29 @@
 import React, {useState} from 'react';
 import {useMutation} from '@apollo/client';
 import './assets/css/style2.css';
+import {useHistory} from "react-router-dom";
+
 
 import imgBlank from '../components/assets/images/blank.jpg';
+import imgSpinner from '../components/assets/images/spinner.gif';
 
 import {ADD_TRIP} from '../utils/mutations';
 import {QUERY_TRIPS} from '../utils/queries';
 
 
-
 const TripForm = () => {
+    const history = useHistory();
+    //     const history = useHistory();
+    //
+    // function historyHelp(){
+    //
+    //       //  history.push('../pages/Dashboard');
+    // }
 
     const [formState, setFormState] = useState({
-        description: '',
-        tripTitle: '',
-        imageUrl: '',
+        // description: '',
+        // tripTitle: '',
+        // imageUrl: '',
     });
     const [characterCount, setCharacterCount] = useState(0);
 
@@ -48,10 +57,7 @@ const TripForm = () => {
                 imageUrl: '',
             });
 
-
-            
-
-
+            history.push('/dashboard');
 
         } catch (err) {
             console.error(err);
@@ -72,6 +78,12 @@ const TripForm = () => {
             formData.append("upload_preset", "rpw7hj6v");
 
             console.log("---> fetch :");
+
+            const elImage = document.getElementById('imgCloudinary');
+            elImage.src = imgSpinner;
+
+
+
             fetch(url, {
                 method: "POST",
                 body: formData

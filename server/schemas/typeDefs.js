@@ -15,6 +15,7 @@ const typeDefs = gql`
     username: String
     commentText: String
   }
+  
 
   type Query {
     trips: [Trip]!
